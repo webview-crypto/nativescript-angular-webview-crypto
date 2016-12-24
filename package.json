@@ -28,8 +28,9 @@
     "nativescript-angular": "*"
   },
   "devDependencies": {
-    "tns-core-modules": "2.4.0",
     "nativescript-angular": "1.2.0",
-    "typescript": "2.0.10"
+    "tns-core-modules": "2.4.0",
+    "typescript": "2.0.10",
+    "zone.js": "^0.6.26"
   }
 }
