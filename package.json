@@ -21,7 +21,7 @@
   "license": "MIT",
   "nativescript": {},
   "dependencies": {
-    "nativescript-webview-crypto": "0.1.4"
+    "nativescript-webview-crypto": "0.1.5"
   },
   "peerDependencies": {
     "tns-core-modules": "*",
