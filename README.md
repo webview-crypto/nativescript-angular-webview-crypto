@@ -28,21 +28,27 @@ transparently proxy all the `crypto` calls to. `crypto` is a global variable,
 to match the Web Cryptography API. To register the `polyfill-crypto` component,
 just import this package.
 
-```javascript
-
+```typescript
+import { Component, OnInit } from "@angular/core";
 import 'nativescript-angular-webview-crypto';
 
 @Component({
-    selector: 'simple-view-container',
+    selector: "ns-app",
     template: `
         <polyfill-crypto></polyfill-crypto>
     `
-})
-export class SimpleViewContainer implements OnInit {
-  ngOnInit() {
-    console.log(crypto.getRandomValues());
-  }
+ })
+export class AppComponent implements OnInit {
+	ngOnInit() {
+		const array = new Uint32Array(10);
+		console.log(array)
+		// getRandomValues is asynchronous
+		// https://github.com/saulshanabrook/webview-crypto#getrandomvalues
+		crypto.getRandomValues(array);
+		(array as any)._promise.then(_ => console.log(array))
+	}
 }
+
 ```
 
 The component will be hidden, but needs to be rendered for `crypto` to work.
